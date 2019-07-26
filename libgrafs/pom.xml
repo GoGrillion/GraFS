@@ -1,0 +1,34 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>libgrafs</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <parent>
+        <artifactId>grafs</artifactId>
+        <groupId>com.gogrillion.grafs</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <properties>
+        <janusgraph.version>0.4.0</janusgraph.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.janusgraph</groupId>
+            <artifactId>janusgraph-berkeleyje</artifactId>
+            <version>${janusgraph.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.janusgraph</groupId>
+            <artifactId>janusgraph-lucene</artifactId>
+            <version>${janusgraph.version}</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+    <dependencyManagement>
+
+    </dependencyManagement>
+
+</project>

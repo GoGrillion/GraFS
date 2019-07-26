@@ -1,0 +1,36 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.gogrillion.grafs</groupId>
+    <artifactId>grafs</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <modules>
+        <module>grafs-server</module>
+        <module>grafs-cli</module>
+        <module>libgrafs</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>info.picocli</groupId>
+                <artifactId>picocli</artifactId>
+                <version>4.0.1</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <repositories>
+        <repository>
+            <id>MVNCentral</id>
+            <name>Maven Central</name>
+            <url>http://repo.maven.apache.org/maven2/</url>
+        </repository>
+    </repositories>
+
+</project>
