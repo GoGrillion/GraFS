@@ -10,18 +10,17 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>info.picocli</groupId>
-                <artifactId>picocli</artifactId>
-            </dependency>
-            <dependency>
-                <groupId>com.gogrillion.grafs</groupId>
-                <artifactId>libgrafs</artifactId>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>info.picocli</groupId>
+            <artifactId>picocli</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.gogrillion.grafs</groupId>
+            <artifactId>libgrafs</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
