@@ -1,11 +1,7 @@
 package com.gogrillion.grafs;
 
-import org.janusgraph.core.JanusGraphFactory;
+import com.gogrillion.grafs.db.LocalDB;
 import picocli.CommandLine;
-
-import java.nio.file.DirectoryStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.concurrent.Callable;
 
 /**
@@ -19,27 +15,17 @@ public class GraFSServer implements Callable<Integer> {
 
     @CommandLine.Parameters(index = "0", description = "Database directory") String dbPath;
 
-    private GraFSDB grafsDb;
+    private LocalDB grafsDb;
 
     public Integer call() throws Exception {
 
         System.out.printf("Database path: %s\n", dbPath);
-        this.g = JanusGraphFactory.build().
-                set("storage.backend", "berkeleyje").
-                set("storage.directory", dbPath).
-                open();
-
-    }
-
-    private void crawlDir(Path dir, Integer depth) throws Exception {
-        try (DirectoryStream<Path> stream = Files.newDirectoryStream(dir)) {
-            for (Path entry: stream) {
-                if(Files.isDirectory(entry)){
-                    crawlDir(entry, depth + 1);
-                }
-                System.out.println(entry.toString());
-            }
+        try {
+            this.grafsDb = new LocalDB(dbPath);
+        } catch (Exception e){
+            return 1;
         }
+        return 0;
     }
 
     public static void main(String... args) {
